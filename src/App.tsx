@@ -49,7 +49,7 @@ class App extends React.Component<{}, IAppState> {
                   text={task.text} 
                   completed={task.completed}
                   matchingWithInput={
-                    task.text.toLowerCase().includes(rootStore.filterValue) 
+                    task.text.toLowerCase().includes(rootStore.filterValue.toLowerCase()) 
                     && rootStore.filterValue
                   }
                 />
