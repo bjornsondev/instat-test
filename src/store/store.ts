@@ -47,7 +47,16 @@ const RootModel = types
     })
   }
 
-  return { createNewTask, completeTask, deleteTask, setFilterTasks }
+  function deleteSomeTasks() {
+    applySnapshot(state, {
+      ...state,
+      taskItems: state.taskItems.filter( ( e: ITaskItem ) => 
+        !e.text.toLowerCase().includes(state.filterValue.toLowerCase())
+      ) 
+    })
+  }
+
+  return { createNewTask, completeTask, deleteTask, setFilterTasks, deleteSomeTasks }
 })
 
 

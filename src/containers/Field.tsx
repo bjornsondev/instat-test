@@ -34,6 +34,17 @@ class Field extends React.Component<IFieldProps, IFieldState> {
     rootStore.setFilterTasks('')
   }
   
+  deleteSomeTasks() {
+    const { rootStore } = this.props
+    const checkUp = window.confirm("Возможно Вы случайно нажали, дело точно сделано? Удаляем?")
+
+    if(!rootStore || !this.state.value || !checkUp) return null
+
+    rootStore.deleteSomeTasks()
+    this.setState({ value: '' })
+    rootStore.setFilterTasks('')
+  }
+  
   onChangeValue(value: string) {
     const { rootStore } = this.props
     if(!rootStore) return null
@@ -57,6 +68,7 @@ class Field extends React.Component<IFieldProps, IFieldState> {
         }}
         
         onEnterClick={ () => this.addNewTask() }
+        onDeleteClick={ () => this.deleteSomeTasks() }
       />
     )
   }

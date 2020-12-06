@@ -6,7 +6,8 @@ import TaskItemComponent from '../components/TaskItemComponent'
 
 
 interface ITaskItemProps extends ITaskItem{
-  rootStore?: IRoot
+  rootStore?: IRoot,
+  matchingWithInput: boolean
 }
 
 @inject('rootStore')
@@ -32,13 +33,14 @@ class TaskItem extends React.Component<ITaskItemProps, {}> {
   }
 
   render() {
-    const { id, text, completed } = this.props
+    const { id, text, completed, matchingWithInput } = this.props
 
     return (
       <TaskItemComponent
         deleteTask={ (e: React.MouseEvent) => this.deleteTask(id, e) }
         completeTask={ () => this.completeTask(id) }
         isCompleted={completed}
+        matchingWithInput={matchingWithInput}
       >{text}</TaskItemComponent>
     )
   }

@@ -1,23 +1,33 @@
 import React, { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { ReactComponent as SendSVG } from '../assets/images/send.svg'
+import { ReactComponent as TrashSVG } from '../assets/images/trash.svg'
 
 
 
 interface IFieldComponentProps extends InputHTMLAttributes<HTMLInputElement>{
   onEnterClick: () => void
+  onDeleteClick: () => void
 }
 
-const FieldComponent: React.FC<IFieldComponentProps> = ({ onEnterClick, ...props }) => {
+const FieldComponent: React.FC<IFieldComponentProps> = ({ onEnterClick, onDeleteClick, ...props }) => {
   return (
       <FieldWrapper>
         <Field {...props}/>
-
+        
         {
           props.value 
-          ? <EnterButton onClick={onEnterClick}>
-              <SendSVG/>
-            </EnterButton> 
+          ? <>
+              <FieldButton 
+                className="deleteButton"
+                onClick={onDeleteClick}
+              >
+                <TrashSVG/>
+              </FieldButton>
+              <FieldButton onClick={onEnterClick}>
+                <SendSVG/>
+              </FieldButton>
+            </> 
           : null
         }
       </FieldWrapper>
@@ -67,16 +77,21 @@ const FieldWrapper = styled.div`
 
 `
 
-const EnterButton = styled.button`
+const FieldButton = styled.button`
   position: absolute;
   width: 20px;
   height: 20px;
-  right: 10px;
+  right: ${ ({right}: any) => right || "10px"};
   top: 50%;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
+  &.deleteButton {
+    transform: rotateZ(-45deg) translateY(-50%);
+    top: 35%;
+    right: 35px;
+  }
   :focus, :hover {
     outline: none;
     opacity: 0.7;

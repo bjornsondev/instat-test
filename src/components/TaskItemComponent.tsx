@@ -10,16 +10,20 @@ import { ReactComponent as NotCheckedSVG } from '../assets/images/blank-check-bo
 
 interface IProps{
   isCompleted: boolean
+  matchingWithInput: boolean
   children: React.ReactNode
   completeTask: () => void
   deleteTask: ( event: React.MouseEvent<HTMLButtonElement> ) => void // Event for stop propogation
 }
 
 const TaskItemComponent: React.FC<IProps> = (
-  {deleteTask, completeTask, isCompleted, ...props}: IProps
+  {deleteTask, completeTask, isCompleted, matchingWithInput, ...props}: IProps
 ) => {
   return (
-    <TaskItem onClick={completeTask} className={" " + (isCompleted ? "completed" : null)}>
+    <TaskItem 
+      onClick={completeTask} 
+      className={" " + (isCompleted ? "completed" : null) + (matchingWithInput ? " match" : null)}
+    >
       <CheckboxLabel>
         <Checkbox checked={isCompleted} onChange={completeTask}/>
         {
@@ -69,7 +73,16 @@ const TaskItem = styled.li`
     transition: none;
     background-color: ${ ({theme}: any) => theme.CLR_cold + "77"};
   }
-
+  &.match {
+    background-color: ${ ({theme}: any) => theme.CLR_cold + "aa"};
+    
+    button {
+      svg {
+        fill: darkred;
+      }
+    }
+  }
+    
   &.completed {
     text-decoration: line-through;
     color: ${ ({theme}: any) => theme.CLR_cold + "33"};
@@ -87,6 +100,7 @@ const TaskItem = styled.li`
     }
   }
 `
+
 const CheckboxLabel = styled.label`
   position: absolute;
   left: 10px;

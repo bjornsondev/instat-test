@@ -42,18 +42,16 @@ class App extends React.Component<{}, IAppState> {
 
           <TaskList>
             {rootStore.taskItems
-              .filter((task: ITaskItem) => {
-                if(rootStore.taskItems.length >= 1 && rootStore.filterValue) {
-                  return task.text.includes(rootStore.filterValue)
-                }
-                return task
-              })
               .map((task: ITaskItem) =>
                 <TaskItem 
                   key={task.id}    
                   id={task.id}
                   text={task.text} 
                   completed={task.completed}
+                  matchingWithInput={
+                    task.text.toLowerCase().includes(rootStore.filterValue) 
+                    && rootStore.filterValue
+                  }
                 />
               )
             }
