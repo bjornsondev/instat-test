@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/instat-test/static/js/main.d38495d9.chunk.js",
-    "main.js.map": "/instat-test/static/js/main.d38495d9.chunk.js.map",
+    "main.js": "/instat-test/static/js/main.f7abe44f.chunk.js",
+    "main.js.map": "/instat-test/static/js/main.f7abe44f.chunk.js.map",
     "runtime-main.js": "/instat-test/static/js/runtime-main.166075f2.js",
     "runtime-main.js.map": "/instat-test/static/js/runtime-main.166075f2.js.map",
-    "static/js/2.b836b0a7.chunk.js": "/instat-test/static/js/2.b836b0a7.chunk.js",
-    "static/js/2.b836b0a7.chunk.js.map": "/instat-test/static/js/2.b836b0a7.chunk.js.map",
+    "static/js/2.b6b46b4b.chunk.js": "/instat-test/static/js/2.b6b46b4b.chunk.js",
+    "static/js/2.b6b46b4b.chunk.js.map": "/instat-test/static/js/2.b6b46b4b.chunk.js.map",
     "index.html": "/instat-test/index.html",
-    "static/js/2.b836b0a7.chunk.js.LICENSE.txt": "/instat-test/static/js/2.b836b0a7.chunk.js.LICENSE.txt",
+    "static/js/2.b6b46b4b.chunk.js.LICENSE.txt": "/instat-test/static/js/2.b6b46b4b.chunk.js.LICENSE.txt",
     "static/media/blank-check-box.a23b17f9.svg": "/instat-test/static/media/blank-check-box.a23b17f9.svg",
     "static/media/osca.e9adc3c9.woff2": "/instat-test/static/media/osca.e9adc3c9.woff2",
     "static/media/send.ca3906e6.svg": "/instat-test/static/media/send.ca3906e6.svg",
@@ -16,7 +16,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.166075f2.js",
-    "static/js/2.b836b0a7.chunk.js",
-    "static/js/main.d38495d9.chunk.js"
+    "static/js/2.b6b46b4b.chunk.js",
+    "static/js/main.f7abe44f.chunk.js"
   ]
 }
