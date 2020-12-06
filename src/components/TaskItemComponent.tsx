@@ -22,7 +22,7 @@ const TaskItemComponent: React.FC<IProps> = (
   return (
     <TaskItem 
       onClick={completeTask} 
-      className={" " + (isCompleted ? "completed" : null) + (matchingWithInput ? " match" : null)}
+      className={`${isCompleted ? "completed" : null} ${matchingWithInput ? "match" : null}`}
     >
       <CheckboxLabel>
         <Checkbox checked={isCompleted} onChange={completeTask}/>
